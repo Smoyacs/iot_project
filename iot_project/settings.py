@@ -38,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'pages', # new
+    # local apps
+    'users.apps.UsersConfig',
+    'pages.apps.PagesConfig', # al ocupar esta forma mas larga es posible agregar configuraciones adicionales  
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser' # esto es para que el modelo de usuario sea el que modificamos
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
