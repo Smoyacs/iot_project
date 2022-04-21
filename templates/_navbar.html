@@ -1,0 +1,49 @@
+<header>
+    <!-- Fixed navbar -->
+    <div class="d-flex flex-column flex-md-row align-items-center  p-3 px-md-4  bg-white border-bottom shadow-sm">
+        <div class="hbrand flex-grow-1">
+            <a href="{% url 'home' %}" class="navbar-brand my-0 mr-md-auto font-weight-normal flex-grow-1">IOT-Project</a>
+        </div>
+        <nav class="my-2 my-md-0 mr-md-3 d-flex align-items-center">
+
+            {% if user.is_authenticated %}
+                <p class="align-items-center pt-3">Hi {{ user.username }}!</p>
+
+                <!-- MODAL LOG-OUT -->
+                <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#logout">
+                    Log-out
+                </button>
+
+                <div class="modal" id="logout">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <p>¿Estas seguro que deseas salir?</p>
+                            </div>
+                    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <form method="post" action="{% url 'account_logout' %}">
+                                    {% csrf_token %}
+                                    {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                                    {% endif %}
+                                    <button type="submit" class="btn btn-primary">Salir</button>
+                                </form>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL LOG_OUT -->
+                
+            {% else %}
+                <a class="p-2 text-dark" href="{% url 'account_login' %}">Log In</a>
+                <a class="btn btn-outline-primary" href="{% url 'account_signup' %}">Sign Up</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>

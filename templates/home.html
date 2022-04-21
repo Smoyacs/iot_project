@@ -5,10 +5,6 @@
 
 {% block content %}
     <h1>Homepage</h1>
-    {% if user.is_authenticated %}
-        Hi {{ user.email }}!
-    {% else %}
-        <p>You are not logged in</p>
-    {% endif %}
+
 
 {% endblock content %}
