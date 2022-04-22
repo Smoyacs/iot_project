@@ -38,14 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', #new
+    'django.contrib.sites', 
     
     #third party apps
     'crispy_forms',
-    'allauth', # new
-    'allauth.account', # new
+    'allauth', 
+    'allauth.account', 
     'allauth.socialaccount',
-
+    'allauth.socialaccount.providers.github', #new
+    'allauth.socialaccount.providers.google', #new
     
     # local apps
     'users.apps.UsersConfig',
@@ -55,11 +56,13 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.CustomUser' # esto es para que el modelo de usuario sea el que modificamos
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
+CRISPY_TEMPLATE_PACK = 'bootstrap4' 
 
 # CONFIG DE DJANGO-ALLAUTH
 
 SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'iot_devices:dashboard'
 LOGOUT_REDIRECT_URL = 'iot_devices:dashboard'
@@ -69,12 +72,12 @@ AUTHENTICATION_BACKENDS = (
 'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 
-ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
-ACCOUNT_EMAIL_REQUIRED = True # new
-ACCOUNT_UNIQUE_EMAIL = True # new
+ACCOUNT_AUTHENTICATION_METHOD = 'email' 
+ACCOUNT_EMAIL_REQUIRED = True 
+ACCOUNT_UNIQUE_EMAIL = True 
 
 #############################ALLAUTH############################################
 
