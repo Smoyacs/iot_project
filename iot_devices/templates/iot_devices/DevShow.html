@@ -7,10 +7,10 @@
         <div class="izquierda d-flex-column mt-5">
 
 
-            <h1 class="text-left">Show Devive: {{ device.id }} - {{ device.type }}</h1>
+            <h1 class="text-left">Show Device: {{ device.id }} - {{ device.type }}</h1>
 
             <p>Tipo de dispositivo: {{ device.type }}</p>
-            <p>Agregado por: {{request.session.usuario.nombre}}</p>
+            <p>Agregado por: {{request.user.username}}</p>
             <p>Placed {{ device.placed }} </p>
             <p>Detail:  {{ device.details }}</p>
             <p class="mt-5">Last Updated: {{last_date}}</p>
@@ -21,13 +21,15 @@
             <a href="/dashboard" class="top nav-style btn btn-outline-primary mt-5">&#8249;&nbsp;&nbsp;Go Back</a>
 
 
-            {% comment %} <div class="card">
+
+            <!-- <div class="card">
                 <h4 class="ml-auto mr-4 mt-3 mb-0">{{ device.placed }}</h4>
                 
                 <h1 class="ml-auto mr-4 large-font">{{last_temp}}&#176;</h1>
                 <p class="time-font mb-0 ml-4 mt-auto">{{last_date}} <span class="sm-font">AM</span></p>
                 <p class="ml-4 mb-4"></p>
-            </div> {% endcomment %}
+            </div>  -->
+
             
         </div>
 
@@ -62,12 +64,24 @@
                 label: 'Temperatura',
                 data: temperatura,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                'rgba(153, 102, 255, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 159, 64, 1)'
                 ],
                 borderColor: [
                     'rgba(153, 102, 255, 1)',
@@ -75,7 +89,19 @@
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -103,21 +129,39 @@
                 data: humedad,
                 
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
                 ],
                 borderColor: [
                     
-                'rgba(255, 206, 86, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(255, 159, 64, 1)'
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255,99,132,1)',
 
                 ],
                 borderWidth: 2,

@@ -8,7 +8,7 @@
 
         <div class="row mt-5 mb-4">
             <div class="col">
-                <h1>Agro Monitoring</h1>
+
                 <h1>Device list</h1>
             </div> 
         </div>
@@ -40,7 +40,35 @@
                                     <td class="align-middle">
                                         <a href="device/{{ item.id }}" class="btn btn-primary">Ver</a>
                                         <a href="device/{{ item.id }}/edit" class="edit-custom btn btn-info">Editar</a>
-                                        <a href="device/{{ item.id }}/destroy" class="delete-custom text-white btn btn-danger">Borrar</a>
+                                        
+                                        <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#borrar">
+                                            Borrar
+                                        </button>
+                                        
+                                        <div class="modal" id="borrar">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                            
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        <p>¿Estas seguro que deseas borrar el dispositivo: <span style="color: red;">{{item.name}}</span> ?</p>
+                                                    </div>
+                                            
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <form method="post" action="device/{{ item.id }}/destroy ">
+                                                            {% csrf_token %}
+                                                            {% if redirect_field_value %}
+                                                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                                                            {% endif %}
+                                                            <button type="submit" class="btn btn-primary">BORRAR</button>
+                                                        </form>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                            
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             {% endif %}
