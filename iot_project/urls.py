@@ -24,5 +24,6 @@ urlpatterns = [
     
     # Local apps
     path('', include('pages.urls')),
+    path('dashboard/', include('iot_devices.urls')),
     
 ]

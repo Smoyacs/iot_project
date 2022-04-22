@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     
     # local apps
     'users.apps.UsersConfig',
-    'pages.apps.PagesConfig', # al ocupar esta forma mas larga es posible agregar configuraciones adicionales  
+    'pages.apps.PagesConfig', # al ocupar esta forma mas larga es posible agregar configuraciones adicionales 
+    'iot_devices',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' # esto es para que el modelo de usuario sea el que modificamos
@@ -60,8 +61,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'iot_devices:dashboard'
+LOGOUT_REDIRECT_URL = 'iot_devices:dashboard'
 
 AUTHENTICATION_BACKENDS = (
 'django.contrib.auth.backends.ModelBackend',
